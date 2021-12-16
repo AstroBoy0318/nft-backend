@@ -12,7 +12,7 @@ const router = express.Router();
 
 var corsOptions = {
     //  origin: "http://localhost:3000"
-    origin: "http://192.168.109.40:3000"
+    origin: "*"
 };
 
 app.use(cors(corsOptions));
