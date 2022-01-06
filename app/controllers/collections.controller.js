@@ -4,16 +4,22 @@ const Items = db.items;
 
 exports.all = (req, res) => {
     const address = req.query.account;
+    let limit = req.query.limit;
+    if (!limit || limit == "")
+        limit = "999";
     let query = {};
-    if (address != undefined) {
-        query = { owner : address.toLowerCase() };
+    if (address != undefined && address != "") {
+        query = { owner: address.toLowerCase() };
     }
-    Collections.findAll({where: query})
-        .then(datas => {
-            res.status(200).send({collections: datas});
+    Collections.findAll({
+            limit: Number(limit),
+            offset: 0,
+            where: query
+        }).then(datas => {
+            res.status(200).send({ collections: datas });
         })
         .catch(err => {
-            res.status(500).send({collections: []});
+            res.status(500).send({ collections: [] });
         });
 };
 
@@ -32,22 +38,21 @@ exports.add = (req, res) => {
         description: req.body.description,
         image: req.body.image
     }).then(res_data => {
-        return res.status(200).send({ status: 'success', message: 'Collection is successfully added'});
+        return res.status(200).send({ status: 'success', message: 'Collection is successfully added' });
     }).catch(err => {
-        return res.status(500).send({ status: 'fail', message: err.message});
+        return res.status(500).send({ status: 'fail', message: err.message });
     })
 }
 
 exports.update = (req, res) => {
     let item = req.body;
     Collections.update(
-        item,
-        {where: {id: req.params.id}}
-    )
+            item, { where: { id: req.params.id } }
+        )
         .then(res_data => {
-            return res.status(200).send({ status:'success', message: "NFT collection is successfully updated" });
+            return res.status(200).send({ status: 'success', message: "NFT collection is successfully updated" });
         })
         .catch(err => {
-            return res.status(500).send({ status:'fail', message: err.message });
+            return res.status(500).send({ status: 'fail', message: err.message });
         });
 }
