@@ -19,7 +19,10 @@ exports.all = (req, res) => {
         }
     }
     if (req.query.owner != undefined && req.query.owner != '') {
-        query.owner = req.query.owner;
+        query.owner = {
+                [Op.like]: '%' + req.query.owner + '%'
+            }
+            // query.owner = req.query.owner;
     }
     if (req.query.collectionId != undefined && req.query.collectionId != '') {
         query.collectionId = req.query.collectionId;
@@ -42,8 +45,6 @@ exports.all = (req, res) => {
     } else {
         mysort[sort] = "DESC";
     }
-
-
 
     Items.findAll({
             where: query,
@@ -114,11 +115,12 @@ exports.one = (req, res) => {
         })
         .then(async result => {
             let creatorObj = await Accounts.findOne({ where: { address: result.creator.toLowerCase() } });
-            let ownerObj = await Accounts.findOne({ where: { address: result.owner.toLowerCase() } });
+            // let ownerObj = await Accounts.findOne({ where: { address: result.owner.toLowerCase() } });
             let category = await Categories.findOne({ where: { id: result.category } });
-            console.log(ownerObj)
+            let collectionObj = await Collections.findOne({ where: { address: result.collectionId } });
+            let collectionOwnerObj = collectionObj ? await Accounts.findOne({ where: { address: collectionObj.owner } }) : null;
             result.creatorObj = creatorObj;
-            result.ownerObj = ownerObj;
+            // result.ownerObj = ownerObj;
             let data = {
                 id: result.id,
                 category: category.name,
@@ -137,7 +139,9 @@ exports.one = (req, res) => {
                 createdAt: result.createdAt,
                 updatedAt: result.updatedAt,
                 creatorObj: creatorObj,
-                ownerObj: ownerObj,
+                // ownerObj: ownerObj,
+                collectionObj: collectionObj,
+                collectionOwnerObj: collectionOwnerObj,
             };
             res.status(200).send({ item: data })
         })

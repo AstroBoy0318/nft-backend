@@ -1,5 +1,6 @@
 const db = require("../models");
 const Collections = db.collections;
+const Accounts = db.accounts;
 const Items = db.items;
 
 exports.all = (req, res) => {
@@ -14,7 +15,10 @@ exports.all = (req, res) => {
     Collections.findAll({
             limit: Number(limit),
             offset: 0,
-            where: query
+            where: query,
+            include: [{
+                model: Accounts
+            }]
         }).then(datas => {
             res.status(200).send({ collections: datas });
         })

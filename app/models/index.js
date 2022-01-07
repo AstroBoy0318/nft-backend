@@ -2,21 +2,20 @@ const config = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
-  config.DB,
-  config.USER,
-  config.PASSWORD,
-  {
-    host: config.HOST,
-    dialect: config.dialect,
-    operatorsAliases: false,
+    config.DB,
+    config.USER,
+    config.PASSWORD, {
+        host: config.HOST,
+        dialect: config.dialect,
+        operatorsAliases: false,
 
-    pool: {
-      max: config.pool.max,
-      min: config.pool.min,
-      acquire: config.pool.acquire,
-      idle: config.pool.idle
+        pool: {
+            max: config.pool.max,
+            min: config.pool.min,
+            acquire: config.pool.acquire,
+            idle: config.pool.idle
+        }
     }
-  }
 );
 
 const db = {};
@@ -33,21 +32,24 @@ db.collections = require("../models/collections.model.js")(sequelize, Sequelize)
 db.items = require("../models/items.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
-  through: "user_roles",
-  foreignKey: "roleId",
-  otherKey: "userId"
+    through: "user_roles",
+    foreignKey: "roleId",
+    otherKey: "userId"
 });
 db.user.belongsToMany(db.role, {
-  through: "user_roles",
-  foreignKey: "userId",
-  otherKey: "roleId"
+    through: "user_roles",
+    foreignKey: "userId",
+    otherKey: "roleId"
 });
 
-db.collections.hasOne(db.items, {foreignKey: 'collectionId'})
-db.items.belongsTo(db.collections, {foreignKey: 'collectionId', targetKey:'address'})
+db.collections.hasOne(db.items, { foreignKey: 'collectionId' })
+db.items.belongsTo(db.collections, { foreignKey: 'collectionId', targetKey: 'address' })
 
-db.accounts.hasOne(db.items, {foreignKey: 'owner'})
-db.items.belongsTo(db.accounts, {foreignKey: 'owner', targetKey:'address'})
+db.accounts.hasOne(db.items, { foreignKey: 'creator' })
+db.items.belongsTo(db.accounts, { foreignKey: 'creator', targetKey: 'address' })
+
+db.accounts.hasOne(db.collections, { foreignKey: 'owner' })
+db.collections.belongsTo(db.accounts, { foreignKey: 'owner', targetKey: 'address' })
 
 
 
