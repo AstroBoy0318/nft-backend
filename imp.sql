@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : local
  Source Server Type    : MySQL
- Source Server Version : 100418
- Source Host           : 127.0.0.1:3306
+ Source Server Version : 100138
+ Source Host           : localhost:3306
  Source Schema         : imp
 
  Target Server Type    : MySQL
- Target Server Version : 100418
+ Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 22/11/2021 16:28:20
+ Date: 09/01/2022 22:26:52
 */
 
 SET NAMES utf8mb4;
@@ -34,13 +34,16 @@ CREATE TABLE `accounts`  (
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `address`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of accounts
 -- ----------------------------
-INSERT INTO `accounts` VALUES (3, '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x165df812ab0abdea1fcb0f4d7cb255e76b669911d171f5c35a34a7753146761816b8bf677a4425909345dfefbdcf0c9096702e10ca65fc742269439ab9119d561c', 'Creator1', 'Cretoar1', 'https://ipfs.io/ipfs/QmRRXBjQRQBdnivJuGe9bgk4yqogULSYoLmcy32y6AierY', '', '', '', '2021-11-16 16:53:17', '2021-11-17 05:41:00');
-INSERT INTO `accounts` VALUES (4, '0xB14096d94aB202F8F1528Bcce0c1a84dc97594A0', '0x56b676c2fb4fa2256030c818ec2ea9d91f32d8bc5f6f7a4251994de57f185c865de1667e348186505a91887f448e30b958e7034a26eaa5abb0a21f73ddf117281b', NULL, NULL, NULL, NULL, NULL, NULL, '2021-11-18 14:40:47', '2021-11-18 14:40:47');
+INSERT INTO `accounts` VALUES (1, '0x649136732a721e24400c954d778d55b7d2b015b6', '0x65ed8c6185500d2ea27a492c8d4acd6661e83650bef25c2ab7315e18bdb5dc49443887ab8ba4b9a659d5c4f9336c218192d327a67707a73f95f7cb4072095eaf1c', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-29 23:13:31', '2021-12-29 23:13:31');
+INSERT INTO `accounts` VALUES (2, '0x699a76ffa3ef08ccafba606e9e1c42fab8bf7171', '0x98735dcda517fea8b2421ce3b4c7be13d7965ced96031239a2f219162bde158d28e53618a51870140f7258b00377edcc04331d20775a212b74d708f576b0bdf71c', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:48:54', '2022-01-06 15:48:54');
+INSERT INTO `accounts` VALUES (3, '0xcc5beb5b1f12c68d18471de24aae3d5f2daa9cca', '0x1c416dbeb46f4b81d6b53fdf93e6525bb21f89064171ec46cdaef88d0f2d2606028d67be0fb2544b867ac2666ae6fec50684b35d57a6b5c365c11aed730fc5851c', 'Willy', 'Artist Bio', 'https://ipfs.io/ipfs/QmRRXBjQRQBdnivJuGe9bgk4yqogULSYoLmcy32y6AierY', '', '', '', '2022-01-06 17:18:25', '2022-01-06 20:31:36');
+INSERT INTO `accounts` VALUES (4, '0x581d85386012335ecC3A84F77398dD1A72d0e47e', '0x090744421154fa5212590cf7ec2c5f4aa31a2b36438bde8412b697a817305810045b4a73ac380e2561a698bb05cdbfb2b66c783e71d6cab4d897657caaafbfe11b', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-06 20:39:01', '2022-01-06 20:39:01');
+INSERT INTO `accounts` VALUES (5, '0xE0F3fb7Dd6b4238362f197aF8C9A71700538764E', '0xc46b1a94838087ffc884fc05fe4f9cb32310860535bbc00c1f3234e2f0a83390583d8c952597e87f373c9eca2b656f13209d3efab7b40c18d8a14442549cf28d1c', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-07 17:02:56', '2022-01-07 17:02:56');
 
 -- ----------------------------
 -- Table structure for categories
@@ -52,15 +55,15 @@ CREATE TABLE `categories`  (
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
 INSERT INTO `categories` VALUES (1, 'Art', NULL, NULL);
 INSERT INTO `categories` VALUES (2, 'Music', NULL, NULL);
-INSERT INTO `categories` VALUES (3, 'Virtual Worlds', NULL, NULL);
-INSERT INTO `categories` VALUES (4, 'Trading Cards', NULL, NULL);
+INSERT INTO `categories` VALUES (3, 'Models', NULL, NULL);
+INSERT INTO `categories` VALUES (4, 'Cards', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for collections
@@ -85,13 +88,11 @@ CREATE TABLE `collections`  (
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `address`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of collections
 -- ----------------------------
-INSERT INTO `collections` VALUES (3, 'IMPv1', 'https://ipfs.io/ipfs/QmRRXBjQRQBdnivJuGe9bgk4yqogULSYoLmcy32y6AierY', 'IMP v1', '0xD3f028Ea40b27661ed2B7c6547fAC307Fe008140', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', NULL, NULL, NULL, NULL, NULL, 'private', 0, 1, '2021-11-16 15:51:21', '2021-11-16 15:51:21');
-INSERT INTO `collections` VALUES (4, 'IMPV2', 'https://ipfs.io/ipfs/QmUKbysUT6tXgbdC55RHQ1fJ3LjyTmmKkam1Xz7HpYTAA2', 'v2', '0x7F40e41C586b4b894b928d9e9EB36B569773180B', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', NULL, NULL, NULL, NULL, NULL, 'private', 0, 1, '2021-11-16 18:29:06', '2021-11-16 18:29:06');
 
 -- ----------------------------
 -- Table structure for error_logs
@@ -101,9 +102,13 @@ CREATE TABLE `error_logs`  (
   `error_id` int(11) NOT NULL AUTO_INCREMENT,
   `erro_desc` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `erro_page` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `date` datetime(0) NOT NULL DEFAULT current_timestamp(0),
+  `date` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`error_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of error_logs
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for items
@@ -113,6 +118,7 @@ CREATE TABLE `items`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `collectionId` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `tokenId` int(11) NULL DEFAULT NULL,
+  `amount` int(11) NULL DEFAULT 1,
   `metadata` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `category` int(11) NULL DEFAULT 0,
   `assetType` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
@@ -124,7 +130,7 @@ CREATE TABLE `items`  (
   `property` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `mint_price` decimal(65, 2) NULL DEFAULT NULL,
   `price` decimal(65, 5) NULL DEFAULT NULL,
-  `owner` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `owner` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `creator` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `is_active` tinyint(1) NULL DEFAULT 1,
   `is_delete` tinyint(1) NULL DEFAULT 0,
@@ -132,15 +138,11 @@ CREATE TABLE `items`  (
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of items
 -- ----------------------------
-INSERT INTO `items` VALUES (4, '0xD3f028Ea40b27661ed2B7c6547fAC307Fe008140', 2, 'https://ipfs.io/ipfs/bafybeigkwdbcvy3aghdpkdw5w7blelys3n7wvblr3jzatzad6mpqhb4o5e/metadata.json', 1, 'image', '0xd0fe663bc2d12b9d6cf258c1106e98bc713aa01b5e35924fba82c65ed5fd9aa4', 'impv1#2', NULL, 'item#2', 'https://ipfs.io/ipfs/QmUKbysUT6tXgbdC55RHQ1fJ3LjyTmmKkam1Xz7HpYTAA2', NULL, NULL, NULL, '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', 1, 0, 0, '2021-11-17 05:22:49', '2021-11-17 05:22:49');
-INSERT INTO `items` VALUES (5, '0xD3f028Ea40b27661ed2B7c6547fAC307Fe008140', 3, 'https://ipfs.io/ipfs/bafybeigbjbpydbldzgvhga36qrdrp4t5rbpw6pzh75gy56kvuppuo2sruq/metadata.json', 2, 'image', '0x3e0a2c64518b9292cd4f8639c5432f2c83e07b22993a1bb130f87d2b6aac8254', 'IMPv1#3', NULL, 'v3', 'https://ipfs.io/ipfs/QmUKbysUT6tXgbdC55RHQ1fJ3LjyTmmKkam1Xz7HpYTAA2', NULL, NULL, 0.00000, '0x6898af88CA898a34555443135575660A5f17182B', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', 1, 0, 2, '2021-11-17 06:56:47', '2021-11-18 16:30:05');
-INSERT INTO `items` VALUES (6, '0x7F40e41C586b4b894b928d9e9EB36B569773180B', 1, 'https://ipfs.io/ipfs/bafybeifz2b5onllzpkmufbax4v5iaphapn5j5jxjsodltmdtotewmo3up4/metadata.json', 1, 'image', '0xabc98c9c15ad24c4cb3b5015d342e643cd474bf9ef62c68ab04c95303ed572fd', 'IMPV2#1', NULL, 'v2#1', 'https://ipfs.io/ipfs/QmUKbysUT6tXgbdC55RHQ1fJ3LjyTmmKkam1Xz7HpYTAA2', NULL, NULL, NULL, '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', 1, 0, 0, '2021-11-17 07:31:15', '2021-11-17 07:31:15');
-INSERT INTO `items` VALUES (7, '0xD3f028Ea40b27661ed2B7c6547fAC307Fe008140', 4, 'https://ipfs.io/ipfs/bafybeihu57tdheddoyesrx6w4fxbtkuvxr536buncs5jyvmceuyjfruuc4/metadata.json', 3, 'image', '0x739928211a4136593ab8a399cc0cb5f919f92c5f1cb0379c5b1c943bd85aed4b', 'IMPV1#4', NULL, 'v1#4', 'https://ipfs.io/ipfs/QmUKbysUT6tXgbdC55RHQ1fJ3LjyTmmKkam1Xz7HpYTAA2', NULL, NULL, NULL, '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', '0x027C0680f7f678CA42053ef9cCD70561bA4b6250', 1, 0, 0, '2021-11-17 10:57:01', '2021-11-17 10:57:01');
 
 -- ----------------------------
 -- Table structure for roles
@@ -152,7 +154,7 @@ CREATE TABLE `roles`  (
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of roles
@@ -170,15 +172,11 @@ CREATE TABLE `user_roles`  (
   `userId` int(11) NOT NULL,
   `roleId` int(11) NOT NULL,
   PRIMARY KEY (`userId`, `roleId`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of user_roles
 -- ----------------------------
-INSERT INTO `user_roles` VALUES (NULL, NULL, 18, 1);
-INSERT INTO `user_roles` VALUES (NULL, NULL, 17, 1);
-INSERT INTO `user_roles` VALUES (NULL, NULL, 16, 1);
-INSERT INTO `user_roles` VALUES ('2020-05-28 11:49:50', '2020-05-28 11:49:50', 15, 2);
 
 -- ----------------------------
 -- Table structure for users
@@ -209,6 +207,10 @@ CREATE TABLE `users`  (
   `client_type` enum('CLIENTE','ESPECIAL','DEMO','ADMIN') CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT 'CLIENTE',
   `active` enum('YES','NO') CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT 'NO',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;
